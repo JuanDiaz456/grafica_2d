@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grraficas 2d javascript</title>
+    <style>
+        #micamvas
+        {
+            border: dotted 5px yellow;
+            background-color: green;
+        }
+    </style>
+    <script>
+        window.onload= fuction()
+        {
+            var canvas= document.getElementById("miCanvas");
+            if (canvas && canvas.getContext)
+            {
+                var ctx= canvas.getContext("2d");
+
+                if(ctx)
+                {
+                    alert ("bienvenid al canvas");
+                }
+                else
+                {
+                    alert("error al crear el contexto")
+                }
+            }
+        }
+
+    </script>
+</head>   
+<body>
+    <h1>Graficas 2D con HTML y javascript</h1>
+    <canvas id="miCanvas" width="500px" height="300 px">
+            tu navegador no soporta canvas
+    </canvas>
+</body>
+</html>
