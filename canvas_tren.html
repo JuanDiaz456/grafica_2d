@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #miCanvas{
+        #miCanvas {
             border: dotted 5px yellow;
             background-color: rgb(128, 0, 75);
         }
     </style>
 </head>
+
 <body>
     <h1>bandera de NORUEGA</h1>
     <canvas id="miCanvas" width="500px" height="300px">Tu navegador no soporta </canvas>
     <script>
-        window.onload = function()
-        {
+        window.onload = function () {
             var canvas = document.getElementById("miCanvas")
 
             const BASE = 600;
@@ -26,31 +27,110 @@
             canvas.width = BASE
             canvas.height = ALTURA
 
-            if(canvas && canvas.getContext)
-            {
+            if (canvas && canvas.getContext) {
                 var ctx = canvas.getContext("2d")
-                if (ctx){
+                if (ctx) {
                     //alert("Bienvenido al canvas")
 
+                    ctx.lineWidth = 10;
+                    ctx.strokeStyle = '#623a0f';
+                    ctx.fillStyle = '#623a0f';
+                    ctx.beginPath();
+                    ctx.arc(180, 355, 60, 0, 2 * Math.PI, true);
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.fillStyle = '#c79414'
+                    ctx.lineWidth = 5;
+
+                    //base del tren
+                    ctx.fillRect(180, 280, 350, 150)
+                    ctx.fillStyle='#b69f0a'
+                    ctx.fillRect(340, 170, 150, 110);
+                    ctx.fillStyle='#623a0f'
+                    ctx.fillRect(220, 190, 50, 90)
+                    ctx.fillRect(200, 190, 90, 20)
+                    ctx.fillRect(320, 140, 190, 30)
+                    ctx.fillRect(340, 110, 150, 30)
+                    ctx.fillStyle='black'
+                    ctx.fillRect(140, 285, 30, 140)
+                    ctx.fillStyle='white'
+
+                    ctx.fillRect(350, 178, 130, 90)
+                    ctx.strokeStyle='black'
+                    ctx.strokeRect(345,173,140,100);
+                    
+                    //ruedas
+                    ctx.lineWidth = 10;
+                    ctx.beginPath();
+                    ctx.arc(480, 430, 45, 0, 2 * Math.PI, true);
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(250, 430, 45, 0, 2 * Math.PI, true);
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(360, 430, 45, 0, 2 * Math.PI, true);
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(480, 430, 30, 0, 2 * Math.PI, true);
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(250, 430, 30, 0, 2 * Math.PI, true);
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(360, 430, 30, 0, 2 * Math.PI, true);
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.fillStyle='black'
+                    ctx.strokeStyle = 'white';
+                    ctx.fillRect(260, 400, 90, 30)
+                    ctx.fillRect(370, 420, 90, 30)
+                    
+                    //imagen
+                    ctx.font="2em Verdana";
+                    ctx.lineWidth=3.0;
+                    ctx.fillStyle="#623a0f";
+                    ctx.strokeStyle="black";
+                    //
+                    ctx.shadowColor= "black";
+                    ctx.shadowOffsetX=5;
+                    ctx.shadowOffsetY=5;
+                    ctx.shadowBlur=10;
+                    //
+                    ctx.fillText("JUAN SEBASTIAN D",210,350);
+                    ctx.strokeText("JUAN SEBASTIAN D",210,350);
+                    
                     var imagen=new Image();
                     //
                     function procesaImagen()
                     {
-                        ctx.drawImage(imagen,BASE/2,ALTURA/2);
+                        ctx.drawImage(imagen,290,150,250,130);
 
                     }
                     //
-                    imagen.src= "./img/descarga.jpeg";
+                    imagen.src= "./img/ab.png";
                     imagen.onload =function(e){
                         procesaImagen();
                     }
                 }
-                else{
-                    alert("Error al crear el contexto")
-                }
             }
-
+            else {
+                alert("Error al crear el contexto")
+            }
         }
+
     </script>
 </body>
+
 </html>
